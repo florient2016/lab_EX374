@@ -1,0 +1,22 @@
+---
+- name: Playbook to set filter
+  hosts: all
+  tasks:
+    - name: Install httpd server
+      package:
+        name: httpd
+        state: latest
+    - name: Edit index file with alpha tags
+      copy:
+        content: "Que Sera, Sera"
+        dest: /var/www/html/index.html
+      tags:
+        - alpha
+        - never
+    - name: Edit index file with Beta tags
+      copy:
+        content: "whatever will be, will be"
+        dest: /var/www/html/index.html
+      tags:
+        - beta
+        - never

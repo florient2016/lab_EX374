@@ -1,0 +1,16 @@
+---
+- name: Create user account in rhel machine
+  hosts: all
+  vars_files: 
+    - user_information.yml
+  vars:
+    passwd: "{{ lookup('password','./password-'+item.name, length=6) }}"
+  tasks:
+    - name: Task to create user
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        comment: "{{ item.first | capitalize }} {{ item.middle | capitalize }} {{ item.last | capitalize }}"
+        uid: "{{ item.uid }}"
+        update_password: on_create
+        password: "{{ passwd | password_hash('sha512') }}"
+      loop: "{{ users }}"

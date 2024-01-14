@@ -1,0 +1,6 @@
+---
+# tasks file for roles/motd
+- name: Set index.html template file
+  template:
+    src: index.j2
+    dest: /tmp/index.html

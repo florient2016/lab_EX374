@@ -1,0 +1,5 @@
+---
+- name: Lanch collection
+  hosts: all
+  roles:
+    - motd.rhel.motd

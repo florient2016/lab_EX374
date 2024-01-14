@@ -1,0 +1,17 @@
+---
+- users:
+  - name: john
+    first: john
+    middle: andrew
+    last: doe
+    uid: 1002
+  - name: karen
+    first: karen
+    middle: betty
+    last: engels
+    uid: 1003
+  - name: lauren
+    first: lauren
+    middle: christian
+    last: roberts
+    uid: 1004
