@@ -4,7 +4,7 @@
   vars_files: 
     - user_information.yml
   vars:
-    passwd: "{{ lookup('password','./password-'+item.name, length=6) }}"
+    passwd: "{{ lookup('password','./password-'+item.name) }}"
   tasks:
     - name: Task to create user
       ansible.builtin.user:
